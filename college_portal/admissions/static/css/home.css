@@ -1,0 +1,243 @@
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f6fa;
+    color: #2c3e50;
+    margin: 0;
+    padding: 0;
+}
+
+/* HERO SECTION */
+.hero-section {
+    background: linear-gradient(rgba(3, 90, 76, 0.8), rgba(0, 0, 0, 0.7)), 
+                url('{% static "img/college_banner.jpg" %}') no-repeat center center/cover;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero-section .hero-overlay {
+    max-width: 800px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.hero-section h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: #f0f0f0;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #00ccff;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 10px #00ccff;
+}
+
+.cta-btn:hover {
+    background: #00aaff;
+    transform: scale(1.05);
+    box-shadow: 0 0 20px #00ccff;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* FEATURES SECTION */
+.features {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 60px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+    gap: 30px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.feature {
+    background: white;
+    padding: 30px;
+    flex: 1 1 300px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border-top: 5px solid #004e92;
+}
+
+.feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.15);
+    border-top-color: #f39c12;
+}
+
+.feature h2 {
+    margin-bottom: 15px;
+    font-size: 1.6rem;
+    color: #004e92;
+}
+
+.feature p {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.feature-details {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    margin-top: 15px;
+    transition: all 0.4s ease;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.feature.open .feature-details {
+    max-height: 500px;
+    opacity: 1;
+}
+
+.feature-details ul {
+    padding-left: 18px;
+    list-style: disc;
+    color: #333;
+}
+
+/* Optional Icon Style Placeholder */
+.feature::before {
+    content: "";
+    display: block;
+    height: 40px;
+    margin: 0 auto 15px;
+    background-image: url('../img/andclogo.png'); /* Replace with your icon path */
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+/* ABOUT SECTION */
+.about {
+    background: #ffffff;
+    padding: 60px 30px;
+    border-radius: 20px;
+    max-width: 1100px;
+    margin: 80px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    line-height: 1.8;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+.about:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.about h2 {
+    font-size: 2.2rem;
+    color: #004e92;
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.about h2::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #f39c12;
+    margin: 12px auto 0;
+    border-radius: 5px;
+}
+
+.about p {
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+    text-align: justify;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .hero-section {
+        padding: 80px 15px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.4rem;
+    }
+
+    .features {
+        gap: 20px;
+    }
+
+    .feature {
+        flex: 1 1 45%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .hero-section h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .features {
+        flex-direction: column;
+        padding: 0 10px;
+    }
+
+    .feature {
+        flex: 1 1 100%;
+    }
+
+    .about {
+        padding: 40px 20px;
+    }
+
+    .about h2 {
+        font-size: 1.8rem;
+    }
+
+    .about p {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,207 @@
+{% load static %}
+{% include 'admissions/header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="{% static 'img/andclogo.png' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>History of College | Acharya Narendra Dev College</title>
+    <style>
+        /* Global Styles */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f6fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #002147;
+            color: white;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Main Container */
+        .container {
+            flex-grow: 1;
+            width: 100%;
+            padding: 30px;
+            background: white;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: justify;
+        }
+
+        .container p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .container h2 {
+            font-size: 2rem;
+            color: #002147;
+            margin-bottom: 20px;
+        }
+
+        /* Highlighting Important Text */
+        .highlight {
+            background-color: #ffeb3b;
+            font-weight: bold;
+            padding: 3px;
+            border-radius: 5px;
+        }
+
+        .important {
+            color: #c2185b;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #002147;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            width: 100%;
+            bottom: 0;
+            position: relative;
+        }
+
+        .footer a {
+            color: #ffeb3b;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.2rem;
+                max-wide:999;
+                padding-bottom:10px;
+            }
+
+            .container {
+                margin: 0px;
+                padding: 20px;
+                max-width:999;
+            }
+
+            .about-section p {
+                font-size: 1rem;
+            }
+        }
+
+        /* About Section Styling */
+        .about-section {
+            margin-top: 40px;
+        }
+
+        .about-section ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .about-section li {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .about-section .highlighted {
+            background-color: #fce4ec;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        /* New Section Design */
+        .history-section {
+            margin-top: 40px;
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+
+        .history-section p {
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .highlighted-history {
+            
+            border-radius: 6px;
+            max-width: 1800px;
+            line-height:2.4;
+        }
+
+        .quote {
+            font-style: italic;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>📖 History of Acharya Narendra Dev College</h1>
+    </header>
+
+    <div class="container">
+        <section class="history-section">
+            <h2>The Journey of ANDC</h2>
+            <p>Explore the rich legacy, journey, and milestones of <span class="highlight">Acharya Narendra Dev College</span> (ANDC), a premier institution under the University of Delhi.</p>
+
+            <p>Acharya Narendra Dev College (ANDC), a constituent college of the University of Delhi, was established in <span class="highlight">1991</span>. Named after the great freedom fighter, educationist, and philosopher <span class="highlight">Acharya Narendra Dev</span>, the college reflects his ideals of selfless service and inclusive education.</p>
+
+            <p>ANDC started its journey with humble beginnings but soon gained a reputation for academic excellence and innovation in teaching. The college was founded with the vision of fostering scientific education and holistic development in students.</p>
+
+            <p>The college is located in <span class="highlight">Govindpuri, Kalkaji, New Delhi</span>, and offers various undergraduate programs, including B.Sc. (Hons) in Biomedical Science, Botany, Chemistry, Computer Science, and many more. ANDC is renowned for its emphasis on <span class="important">research-driven learning</span> and a forward-thinking approach to education.</p>
+
+            <p>Through its efforts to offer world-class education, ANDC has built a solid foundation for students to excel not only in academics but also in various extracurricular activities. Over the years, ANDC has grown to be known for its inclusivity and eco-friendly campus initiatives.</p>
+
+            <p>Today, Acharya Narendra Dev College stands as one of the most prestigious colleges of the University of Delhi, with a legacy built on dedication, quality education, and continuous progress. As the college continues to innovate, it remains committed to creating an environment where students can nurture their academic pursuits and develop leadership qualities for the future.</p>
+
+            <p class="quote">"Education is the most powerful weapon which you can use to change the world." – <span class="highlighted">Acharya Narendra Dev</span></p>
+
+            <h2>Key Features of ANDC</h2>
+            <ul>
+                <li><span class="highlighted">Eco-friendly campus</span> promoting sustainability and green initiatives.</li>
+                <li><span class="highlighted">Innovative teaching methodologies</span> that focus on research and development.</li>
+                <li>A wide range of <span class="highlighted">extracurricular activities</span> that promote the all-round development of students.</li>
+                <li>Dedicated faculty members committed to providing the best academic experience.</li>
+                <li>State-of-the-art <span class="highlighted">labs and modern infrastructure</span> to support learning and research.</li>
+            </ul>
+
+            <h2>Historical Milestones</h2>
+            <div class="highlighted-history">
+                <p>Acharya Narendra Dev College achieved several milestones since its establishment:</p>
+                <ul>
+                    <li>In <span class="highlight">1991</span>, ANDC was founded with the vision to create an institution that balances both academics and extra-curricular activities.</li>
+                    <li>By <span class="highlight">2005</span>, the college introduced advanced courses in emerging scientific fields such as Biomedical Science and Electronics.</li>
+                    <li>In <span class="highlight">2010</span>, ANDC achieved recognition for its efforts in sustainable campus development, launching its green initiatives.</li>
+                    <li>As of <span class="highlight">2020</span>, ANDC is known for its cutting-edge research programs and collaboration with international universities.</li>
+                </ul>
+            </div>
+
+            <p>Looking forward, Acharya Narendra Dev College is determined to continue its legacy by embracing technology, fostering innovation, and contributing to the academic and social growth of its students.</p>
+        </section>
+    </div>
+
+    <div class="footer">
+        {% include 'admissions/footer.html' %}
+    </div>
+</body>
+
+</html>

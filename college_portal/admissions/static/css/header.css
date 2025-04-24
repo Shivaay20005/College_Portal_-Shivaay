@@ -1,0 +1,397 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f7fa;
+    color: #333;
+}
+
+/* Top Utility Bar */
+.top-bar {
+    background-color: #003366;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 30px;
+    font-size: 16px;
+    flex-wrap: wrap; /* Ensures wrap when on small screens */
+}
+
+.top-bar a {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.top-bar a:hover {
+    text-decoration: underline;
+}
+
+/* Branding Area */
+.logo-box {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Space added for better mobile view */
+}
+
+.logo-box img {
+    width: 200px !important;  /* Increased width for better visibility */
+    height: 200px !important; /* Increased height for better visibility */
+    margin-right: 20px;
+}
+
+.college-info h1 {
+    font-size: 48px;
+    color: #003366;
+    margin: 0;
+}
+
+.college-info .subheading {
+    font-size: 24px;
+    color: #0055a5;
+    margin-top: 10px;
+}
+
+.college-info .address,
+.college-info .accreditation,
+.college-info .dbt-status {
+    font-size: 20px;
+    color: #333;
+    margin-top: 10px;
+}
+
+.college-info .address {
+    font-weight: bold;
+}
+
+/* Image Styling */
+.image-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.image-right img {
+    width: 150px;
+    height: auto;
+}
+
+/* Main Navigation */
+.main-nav {
+    background-color: #003366;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+.main-nav ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap; /* Ensures wrap when on small screens */
+}
+
+.main-nav li {
+    position: relative;
+}
+
+.main-nav a {
+    color: white;
+    padding: 20px 30px;
+    display: block;
+    text-decoration: none;
+    font-size: 22px;
+    transition: color 0.3s ease, text-shadow 0.3s ease; /* Added transition for glow effect */
+}
+
+.main-nav a:hover {
+    background-color: #003366;
+    color: #fff;
+    text-shadow: 0 0 10px #fff, 0 0 20px #007bff; /* Glowing effect on hover */
+}
+
+/* Glowing Active Link */
+.main-nav a.active {
+    color: #fff;
+    text-shadow: 0 0 15px #007bff, 0 0 30px #007bff; /* Glowing active link */
+}
+
+/* Dropdown */
+.has-dropdown .dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgb(3, 28, 40);
+    top: 100%;
+    left: 0;
+    min-width: 250px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    flex-direction: column;
+}
+
+.has-dropdown:hover .dropdown {
+    display: flex;
+}
+
+.dropdown li {
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown li a {
+    padding: 12px 20px;
+    color: #003366;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Added transition */
+}
+
+.dropdown li a:hover {
+    background-color: #f2f2f2;
+    color: #007bff;
+    text-shadow: 0 0 5px #007bff; /* Glowing effect on dropdown item */
+}
+
+/* Responsive Adjustments */
+
+/* Medium Screens (Tablets and Laptops) */
+@media (max-width: 1024px) {
+    .branding-area {
+        padding: 30px 40px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .logo-box img {
+        height: 60px; /* Adjusted for better fit */
+        margin-right: 15px;
+    }
+
+    .college-info h1 {
+        font-size: 36px; /* Adjusted font size */
+    }
+
+    .college-info .subheading {
+        font-size: 20px; /* Adjusted font size */
+    }
+
+    .college-info .address,
+    .college-info .accreditation,
+    .college-info .dbt-status {
+        font-size: 16px; /* Adjusted font size */
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Keep horizontal on smaller screens */
+    }
+
+    .main-nav li {
+        padding: 0 8px; /* Adjust padding */
+    }
+}
+
+/* Small Screens (Mobile devices) */
+@media (max-width: 768px) {
+    .branding-area {
+        padding: 20px 30px;
+        flex-direction: column;  /* Stack elements vertically */
+        align-items: center;     /* Center-align elements */
+    }
+
+    .logo-box img {
+        height: 100px; /* Adjusted for better fit */
+        margin-bottom: 15px;
+    }
+
+    .college-info h1 {
+        font-size: 30px; /* Adjusted font size */
+    }
+
+    .college-info .subheading {
+        font-size: 18px; /* Adjusted font size */
+    }
+
+    .college-info .address,
+    .college-info .accreditation,
+    .college-info .dbt-status {
+        font-size: 14px; /* Adjusted font size */
+    }
+
+    .main-nav ul {
+        flex-direction: column; /* Stack navigation items vertically */
+        align-items: center;    /* Center-align navigation items */
+    }
+
+    .main-nav a {
+        padding: 15px 10px;
+        font-size: 18px; /* Adjust font size */
+    }
+
+    .main-nav li {
+        margin: 5px 0; /* Add spacing between items */
+    }
+}
+
+/* Dark Mode */
+body.dark-mode {
+    background-color: #111;
+    color: #eee;
+}
+
+body.dark-mode .top-bar,
+body.dark-mode .main-nav {
+    background-color: #000;
+}
+
+body.dark-mode .main-nav a {
+    color: #ccc;
+}
+
+body.dark-mode .main-nav a:hover,
+body.dark-mode .main-nav a.active {
+    color: #fff;
+    text-shadow: 0 0 10px #00f;
+}
+
+/* Top Bar - Centered with Bigger Social Icons */
+.top-bar {
+    background-color: #035a4c;
+    display: flex;
+    justify-content: flex-end; /* Align icons to the right */
+    align-items: center;
+    padding: 12px 30px;
+    flex-wrap: wrap;
+}
+
+.social-media-links {
+    display: inline-block;
+}
+
+.social-icon {
+    color: white;
+    margin: 0 10px;
+    font-size: 24px;
+    transition: color 0.3s ease;
+    text-align: right;
+}
+
+/* Platform-specific colors */
+.social-icon.twitter {
+    color: #1DA1F2;
+}
+
+.social-icon.instagram {
+    color: #E1306C;
+}
+
+.social-icon.facebook {
+    color: #1877F2;
+}
+
+.social-icon.linkedin {
+    color: #0077B5;
+}
+
+/* Hover effect */
+.social-icon:hover {
+    color: #00bcd4;
+    transform: scale(1.3);
+}
+
+/* Branding Area */
+.branding-area {
+    background-color: #f9f9f9;
+    padding: 20px;
+    display: flex;
+    align-items: left;
+    justify-content: left;
+    text-align: left;
+    border-bottom: 2px solid #ccc;
+}
+
+.logo-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo-box img {
+    width: 100px;
+    height: auto;
+}
+
+.college-info h1 {
+    font-size: 24px;
+    color: #003366;
+    font-weight: bold;
+}
+
+.college-info p {
+    font-size: 14px;
+    color: #333;
+    margin: 2px 0;
+}
+
+/* Navigation Bar */
+.main-nav {
+    background-color: #004d40;
+    text-align: center;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-nav ul li {
+    position: relative;
+}
+
+.main-nav ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.main-nav ul li a:hover {
+    background-color: #00695c;
+}
+
+/* Dropdown */
+.has-dropdown:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #00695c;
+    min-width: 180px;
+    z-index: 999;
+}
+
+.dropdown li a {
+    padding: 10px 15px;
+    color: white;
+    text-align: left;
+}
+
+.dropdown li a:hover {
+    background-color: #00796b;
+}
+
+

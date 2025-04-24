@@ -1,0 +1,232 @@
+/* === FOOTER STYLES === */
+.site-footer {
+    background-color: #035a4c;  /* Changed to solid background color */
+    color: #ffffff;
+    padding: 60px 20px 30px;
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* Watermark logo in background */
+.site-footer::before {
+    content: "";
+    background: url('img/college_image.jpg') no-repeat center center;
+    background-size: 250px;
+    opacity: 0.05;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Add visibility effect when the footer becomes visible */
+.footer-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer Top Section */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    gap: 40px;
+    z-index: 2;
+    position: relative;
+}
+
+/* Footer Column */
+.footer-column {
+    flex: 1 1 300px;
+    min-width: 260px;
+}
+
+/* Footer Column Headings */
+.footer-column h3 {
+    font-size: 22px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid #ffffff;
+    padding-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Footer Column Text and Links */
+.footer-column p,
+.footer-column a {
+    margin: 10px 0;
+    line-height: 1.7;
+    font-size: 16px;
+    color: #cccccc;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Footer Link Hover Effect */
+.footer-column a:hover {
+    color: #00ccff;
+    text-decoration: underline;
+}
+
+/* Social Icons Section */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+/* Social Icons Style */
+.social-icons a {
+    color: #ffffff;
+    font-size: 22px;
+    transition: transform 0.3s, color 0.3s;
+}
+
+/* Social Icons Hover Effect */
+.social-icons a:hover {
+    color: #00ccff;
+    transform: scale(1.2);
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    text-align: center;
+    border-top: 1px solid #ffffff33;
+    padding-top: 20px;
+    font-size: 15px;
+    color: #dddddd;
+    z-index: 2;
+    position: relative;
+}
+
+/* === TABLET RESPONSIVE === */
+@media (max-width: 1024px) {
+    .footer-top {
+        padding: 0 20px;
+        gap: 30px;
+    }
+
+    .footer-column {
+        flex: 1 1 45%;
+    }
+
+    .site-footer::before {
+        background-size: 200px;
+        top: 20%;
+    }
+}
+
+/* === MOBILE RESPONSIVENESS === */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .footer-column h3 {
+        font-size: 20px;
+    }
+
+    .footer-column p,
+    .footer-column a {
+        font-size: 15px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+
+    .site-footer::before {
+        background-size: 130px;
+        top: 30%;
+    }
+}
+
+/* === VERY SMALL DEVICES === */
+@media (max-width: 480px) {
+    .footer-column h3 {
+        font-size: 18px;
+    }
+
+    .footer-column p,
+    .footer-column a {
+        font-size: 14px;
+    }
+
+    .social-icons a {
+        font-size: 20px;
+    }
+
+    .site-footer::before {
+        background-size: 100px;
+    }
+}
+/* New Flex Container with Logo */
+.footer-top {
+    display: flex;
+    gap: 40px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+/* Logo Section Styling */
+.footer-logo {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    padding-top: 10px;
+}
+
+.footer-logo img {
+    width: 100px;
+    height: auto;
+}
+
+/* Column Wrapper */
+.footer-columns {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    flex: 1;
+}
+
+/* Make sure columns don’t break in layout */
+.footer-column {
+    min-width: 260px;
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-logo {
+        margin-bottom: 20px;
+    }
+}
+

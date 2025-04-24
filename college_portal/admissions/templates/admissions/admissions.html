@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Required Documents & Admission Process</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+  
+  {% include 'admissions/header.html' %}
+  <style>
+    body {
+      font-family: 'Open Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f2f5, #dfe9f3);
+      color: #333;
+    }
+
+    .header {
+      background: rgb(103, 111, 122);
+      color: white;
+      padding: 30px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      border-bottom: 5px solid #2980b9;
+    }
+
+    .header h1 {
+      font-size: 42px;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Admission Process Section */
+    .admission-process {
+      width: 100%; /* Make the section full width */
+      margin: 0 auto; /* Remove margins */
+      padding: 30px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      border-top: 5px solid #2980b9;
+      box-sizing: border-box; /* Ensure padding is included in width calculation */
+    }
+    
+
+    .admission-process h2 {
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: #2c3e50;
+      text-transform: uppercase;
+    }
+
+    .admission-process ol {
+      padding-left: 20px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .admission-process ol li {
+      margin-bottom: 15px;
+    }
+
+    .admission-process strong {
+      color: #2980b9;
+    }
+
+    .accordion-container {
+      width: 100%; /* Make the container full width */
+      margin: 0 auto; /* Remove margins */
+      padding: 30px;
+      background: #fff;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+      border-radius: 15px;
+      border-top: 5px solid #2980b9;
+      box-sizing: border-box; /* Ensure padding is included in width calculation */
+    }
+    
+
+    .accordion-container h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 30px;
+      font-weight: 600;
+      color: #2c3e50;
+      text-transform: uppercase;
+    }
+
+    .accordion-item {
+      border-bottom: 2px solid #ddd;
+    }
+
+    .accordion-title {
+      padding: 20px;
+      background: #3498db;
+      color: #fff;
+      cursor: pointer;
+      position: relative;
+      font-weight: 700;
+      font-size: 20px;
+      transition: background 0.3s, transform 0.3s;
+      border-radius: 5px;
+      margin: 10px 0;
+      text-transform: capitalize;
+    }
+
+    .accordion-title:hover {
+      background: #2980b9;
+      transform: scale(1.05);
+    }
+
+    .accordion-title::after {
+      content: "+";
+      position: absolute;
+      right: 20px;
+      font-size: 22px;
+    }
+
+    .accordion-title.active::after {
+      content: "-";
+    }
+
+    .accordion-content {
+      display: none;
+      padding: 20px;
+      background: #f9f9f9;
+      font-size: 18px;
+      color: #444;
+      line-height: 1.8;
+      border-radius: 5px;
+    }
+
+    .note {
+      margin-top: 40px;
+      background: #eafbea;
+      border-left: 5px solid #2ecc71;
+      padding: 20px;
+      font-style: italic;
+      border-radius: 10px;
+      font-size: 18px;
+    }
+
+    .note strong {
+      font-size: 20px;
+      color: #2ecc71;
+    }
+
+    @media (max-width: 600px) {
+      .accordion-title {
+        font-size: 18px;
+      }
+
+      .accordion-container {
+        padding: 15px;
+      }
+
+      .header {
+        padding: 20px;
+      }
+    }
+
+    /* Footer style */
+    .footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #2980b9;
+      color: white;
+      font-size: 18px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>🎓 Delhi University - Admission 2025-2026</h1>
+    <p>Complete Guide to Required Documents & Admission Process</p>
+  </div>
+
+  <!-- Admission Process Section -->
+  <div class="admission-process">
+    <h2>📋 Admission Process (Step-by-Step)</h2>
+    <ol>
+      <li>Candidates will be allocated a provisional seat in a particular course/college based on merit and eligibility criteria.</li>
+      <li>To confirm your seat, you need to accept the provisional allocation. The college will then verify:
+        <ul>
+          <li>✔ Minimum eligibility criteria such as academic qualifications and age</li>
+          <li>✔ Program-specific eligibility based on course prerequisites</li>
+          <li>✔ Subject mapping, ensuring compatibility with CUET and class 12 subjects</li>
+          <li>✔ Authenticity and accuracy of all uploaded documents</li>
+        </ul>
+      </li>
+      <li>Once the verification is completed, the college will either approve or reject your provisional allocation.</li>
+      <li>If approved, the next step is to pay the admission fee to confirm your seat. Ensure to complete this step within the specified deadline.</li>
+      <li>The final step involves a physical verification of all submitted documents at the college to complete the admission process and finalize your enrollment.</li>
+    </ol>
+    <strong>NOTE:</strong> Failure to pay the admission fee within the specified deadline will lead to cancellation of your provisional admission. In case you decide to withdraw, you can do so through the dashboard by paying a non-refundable withdrawal fee of Rs. 1000.
+  </div>
+
+  <!-- Accordion Container for Required Documents -->
+  <div class="accordion-container">
+    <h2>📄 Required Documents for Admission</h2>
+    <div class="accordion-item">
+      <div class="accordion-title">1. Aadhar Card</div>
+      <div class="accordion-content">
+        A government-issued ID that is essential for verifying your name, date of birth, and residential address. Ensure the Aadhar card is linked to your mobile number for seamless verification.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">2. Passport Size Photograph</div>
+      <div class="accordion-content">
+        A recent passport-size photograph with a white background is required. The photo must be in JPG/PNG format and should not be older than six months.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">3. Signature</div>
+      <div class="accordion-content">
+        A scanned image of your signature in blue or black ink is required. The file format should be JPG or PNG, with a resolution of at least 300 DPI.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">4. Parent/Guardian ID Proof</div>
+      <div class="accordion-content">
+        You are required to submit a government-issued ID proof of your parent or guardian, such as an Aadhar card or PAN card, to confirm their identity. This document is essential for verifying the guardian's authorization, especially if you are a minor or require parental consent for your admission. Ensure the document is valid.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">5. Class 10 & 12 Mark Sheets</div>
+      <div class="accordion-content">
+        Your class 10 and 12 mark sheets are necessary for academic verification. These mark sheets will be used to assess your eligibility for the course and your merit based on the marks obtained. Please ensure that the mark sheets are official, original, and attested as per the institution’s requirements for smooth processing.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">6. Caste Certificate (if applicable)</div>
+      <div class="accordion-content">
+        For applicants belonging to SC, ST, OBC, or EWS categories, a valid caste certificate issued by the competent authority is required. The certificate should be recent (issued within the last six months) and needs to be properly attested. This is necessary to avail of the reservation benefits during the admission process and ensure eligibility.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">7. Transfer Certificate (TC)</div>
+      <div class="accordion-content">
+        A Transfer Certificate issued by your previous school or institution is mandatory to verify your eligibility for admission. This document confirms that you have successfully completed your previous academic year and are eligible to join a new institution. Ensure that the certificate is attested by your school or college for authenticity.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">8. Migration Certificate (if applicable)</div>
+      <div class="accordion-content">
+        If you are transferring from a different educational board or university, you must submit a Migration Certificate. This document is essential for verifying your transition from one institution to another and is required for the smooth processing of your admission. Ensure it is issued by the board or university from which you are migrating.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">9. Subjects Studied List</div>
+      <div class="accordion-content">
+        You must submit a list of the subjects you studied during class 12. This list can either be mentioned on your marksheet or provided as a separate document. It is crucial to ensure that the list clearly highlights the subjects studied, as it will be used for subject-specific eligibility verification and to map your academic qualifications to the course you're applying for.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">10. Admission Category Proof</div>
+      <div class="accordion-content">
+        If you are applying under a special admission category such as sports, EWS, CW (Children of War Widows), etc., you need to provide relevant proof. This could include a certificate or official document that validates your claim. Such proofs are necessary to secure admission under quota-based or reserved category provisions, as per the institution's policies.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">11. Address Proof</div>
+      <div class="accordion-content">
+        A government-issued document that shows your current residential address is required for verification purposes. Accepted documents include Aadhar card, voter ID, utility bills, or bank statements. The address proof is crucial to confirm your permanent or current residence, which will be recorded in the admission records and used for correspondence and other administrative purposes.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">12. Blood Group Certificate (Optional)</div>
+      <div class="accordion-content">
+        Although optional, a blood group certificate issued by a recognized medical laboratory is highly recommended. This certificate can be useful for health and emergency purposes during your time at the institution, ensuring that your blood type is on record. It adds an extra layer of safety, particularly if the institution organizes medical check-ups or needs quick access to health-related information.
+      </div>
+    </div>
+    <div class="accordion-item">
+      <div class="accordion-title">13. Hostel/Transport Request (if needed)</div>
+      <div class="accordion-content">
+        If you require hostel accommodation or transport facilities provided by the institution, you must submit a request form. This form is necessary to confirm your need for these services and to ensure proper arrangements are made in advance. Submitting this request early will help in better planning and allocation of resources by the institution.
+      </div>
+    </div>
+    
+    <!-- Additional documents follow similarly -->
+    
+    <!-- Notes Section -->
+    <div class="note">
+      ✅ <strong>Note:</strong> All documents must be clear, scanned at 300 DPI, and in PDF/JPG/PNG format. Keep file size under 1MB for each upload.
+    </div>
+  </div>
+
+  {% comment %} <!-- Footer -->
+  <div class="footer">
+    <p>For more details, visit <a href="https://www.du.ac.in/">Delhi University</a></p>
+  </div> {% endcomment %}
+
+  <!-- Accordion Toggle Script -->
+  <script>
+    const titles = document.querySelectorAll(".accordion-title");
+
+    titles.forEach(title => {
+      title.addEventListener("click", () => {
+        const isActive = title.classList.contains("active");
+        titles.forEach(t => {
+          t.classList.remove("active");
+          t.nextElementSibling.style.display = "none";
+        });
+
+        if (!isActive) {
+          title.classList.add("active");
+          title.nextElementSibling.style.display = "block";
+        }
+      });
+    });
+  </script>
+  
+  {% include 'admissions/footer.html' %}
+</body>
+</html>

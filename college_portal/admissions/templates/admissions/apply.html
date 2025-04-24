@@ -1,0 +1,184 @@
+ {% load static %}
+ {% include 'admissions/header.html' %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <link rel="icon" type="image/png" href="{% static 'img/andclogo.png' %}">
+     <title>Apply for Admission</title>
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+ </head>
+ <body>
+ 
+     <div class="container">
+         <h1>Student Admission Form</h1>
+ 
+         <!-- Flash Messages -->
+         {% if messages %}
+             <div class="messages">
+                 {% for message in messages %}
+                     <div class="alert {{ message.tags }}">{{ message }}</div>
+                 {% endfor %}
+             </div>
+         {% endif %}
+ 
+         <!-- Admission Form -->
+         <form method="post" enctype="multipart/form-data">
+             {% csrf_token %}
+ 
+             <!-- 🎓 Basic Information -->
+             <div class="form-section">
+                 <h3>Basic Information</h3>
+                 <label for="full_name">Full Name:</label>
+                 {{ form.full_name }}
+ 
+                 <label for="gender">Gender:</label>
+                 {{ form.gender }}
+ 
+                 <label for="date_of_birth">Date of Birth:</label>
+                 {{ form.date_of_birth }}
+ 
+                 <label for="blood_group">Blood Group:</label>
+                 {{ form.blood_group }}
+ 
+                 <label for="nationality">Nationality:</label>
+                 {{ form.nationality }}
+ 
+                 <label for="religion">Religion:</label>
+                 {{ form.religion }}
+ 
+                 <label for="caste_category">Caste Category:</label>
+                 {{ form.caste_category }}
+             </div>
+ 
+             <!-- 🏠 Contact Details -->
+             <div class="form-section">
+                 <h3>Contact Details</h3>
+                 <label for="mobile_number">Mobile Number:</label>
+                 {{ form.mobile_number }}
+ 
+                 <label for="email">Email:</label>
+                 {{ form.email }}
+ 
+                 <label for="parent_mobile_number">Parent Mobile Number:</label>
+                 {{ form.parent_mobile_number }}
+ 
+                 <label for="parent_email">Parent Email:</label>
+                 {{ form.parent_email }}
+ 
+                 <label for="present_address">Present Address:</label>
+                 {{ form.present_address }}
+ 
+                 <label for="permanent_address">Permanent Address:</label>
+                 {{ form.permanent_address }}
+             </div>
+ 
+             <!-- 👨‍👩‍👧 Parent/Guardian Info -->
+             <div class="form-section">
+                 <h3>Parent/Guardian Information</h3>
+                 <label for="father_name">Father's Name:</label>
+                 {{ form.father_name }}
+ 
+                 <label for="father_occupation">Father's Occupation:</label>
+                 {{ form.father_occupation }}
+ 
+                 <label for="father_contact">Father's Contact:</label>
+                 {{ form.father_contact }}
+ 
+                 <label for="mother_name">Mother's Name:</label>
+                 {{ form.mother_name }}
+ 
+                 <label for="mother_occupation">Mother's Occupation:</label>
+                 {{ form.mother_occupation }}
+ 
+                 <label for="mother_contact">Mother's Contact:</label>
+                 {{ form.mother_contact }}
+ 
+                 <label for="guardian_name">Guardian's Name:</label>
+                 {{ form.guardian_name }}
+ 
+                 <label for="guardian_relation">Guardian's Relation:</label>
+                 {{ form.guardian_relation }}
+             </div>
+ 
+             <!-- 📚 Academic Info -->
+             <div class="form-section">
+                 <h3>Academic Information</h3>
+                 <label for="last_school_name">Last School Name:</label>
+                 {{ form.last_school_name }}
+ 
+                 <label for="last_class_passed">Last Class Passed:</label>
+                 {{ form.last_class_passed }}
+ 
+                 <label for="year_of_passing">Year of Passing:</label>
+                 {{ form.year_of_passing }}
+ 
+                 <label for="board_name">Board Name:</label>
+                 {{ form.board_name }}
+ 
+                 <label for="marks_obtained">Marks Obtained:</label>
+                 {{ form.marks_obtained }}
+ 
+                 <label for="percentage">Percentage:</label>
+                 {{ form.percentage }}
+ 
+                 <label for="subjects_studied">Subjects Studied:</label>
+                 {{ form.subjects_studied }}
+             </div>
+ 
+             <!-- 🏫 Course & Admission Details -->
+             <div class="form-section">
+                 <h3>Course & Admission Details</h3>
+                 <label for="course_applying_for">Course Applying For:</label>
+                 {{ form.course_applying_for }}
+ 
+                 <label for="branch">Branch:</label>
+                 {{ form.branch }}
+ 
+                 <label for="medium_of_instruction">Medium of Instruction:</label>
+                 {{ form.medium_of_instruction }}
+ 
+                 <label for="academic_year">Academic Year:</label>
+                 {{ form.academic_year }}
+ 
+                 <label for="admission_category">Admission Category:</label>
+                 {{ form.admission_category }}
+             </div>
+ 
+             <!-- 📁 Documents -->
+             <div class="form-section">
+                 <h3>Documents</h3>
+                 <label for="profile_picture">Profile Picture:</label>
+                 {{ form.profile_picture }}
+ 
+                 <label for="signature">Signature:</label>
+                 {{ form.signature }}
+ 
+                 <label for="aadhar_card">Aadhar Card:</label>
+                 {{ form.aadhar_card }}
+             </div>
+ 
+             <!-- 📅 Additional Information -->
+             <div class="form-section">
+                 <h3>Additional Information</h3>
+                 <label for="hostel_required">Hostel Required:</label>
+                 {{ form.hostel_required }}
+ 
+                 <label for="transport_required">Transport Required:</label>
+                 {{ form.transport_required }}
+ 
+                 <label for="scholarship_applied">Scholarship Applied:</label>
+                 {{ form.scholarship_applied }}
+             </div>
+ 
+             <!-- Submit Button -->
+             <button type="submit">Submit Application</button>
+         </form>
+     </div>
+ 
+     <script src="{% static 'js/script.js' %}"></script>
+ </body>
+ </html>
+ 
+ {% include 'admissions/footer.html' %}

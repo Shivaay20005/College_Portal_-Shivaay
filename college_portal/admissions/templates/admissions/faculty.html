@@ -1,0 +1,231 @@
+{% load static %}
+{% include 'admissions/header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Our Faculty - Shivaay College</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Comic Neue', 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+
+      color: #fff;
+    }
+
+    .page-header {
+      padding: 4vw 2vw;
+      text-align: center;
+    }
+
+    .page-header h1 {
+      margin: 0;
+      max-width:999px;
+      font-size: clamp(24px, 5vw, 42px);
+      color: black;
+      text-shadow: 2px 2px 5px #000;
+      font-weight: bold;
+      letter-spacing: 1px;
+    }
+
+  
+    .faculty-notes {
+      max-width: 900px;
+      max-height: 900px;
+      margin: 20px auto;
+      font-size: clamp(1em, 2.5vw, 1.1em);
+      line-height: 1.6;
+      text-align: justify;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 100px;
+      border-radius: 12px;
+    }
+
+    .faculty-notes {
+      font-weight: bold;
+      font-size: clamp(1.1em, 3vw, 1.3em);
+    }
+
+    .department-section {
+      margin: 40px auto;
+      padding: 0 30px;
+    }
+
+    .department-title {
+      font-size: clamp(22px, 5vw, 28px);
+      text-align: center;
+      margin-bottom: 25px;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+      color: #fff;
+      background-color: rgba(0, 0, 0, 0.4);
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    .faculty-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+
+    .faculty-card {
+      perspective: 1000px;
+      width: 250px;
+      height: 320px;
+    }
+
+    .faculty-flip {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s;
+      transform-style: preserve-3d;
+      position: relative;
+    }
+
+    .faculty-card:hover .faculty-flip {
+      transform: rotateY(180deg);
+    }
+
+    .faculty-front,
+    .faculty-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+      padding: 15px;
+      box-sizing: border-box;
+      font-family: inherit;
+    }
+
+    .faculty-front {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to top, #008080, #00cccc);
+      color: #fff;
+    }
+
+    .faculty-back {
+      transform: rotateY(180deg);
+      background: #ffffff;
+      color: #000;
+    }
+
+    .faculty-photo {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid #fff;
+      margin-bottom: 15px;
+    }
+
+    .faculty-info {
+      text-align: center;
+    }
+
+    .faculty-info h3 {
+      margin: 5px 0;
+      font-size: clamp(16px, 4vw, 20px);
+    }
+
+    .faculty-info p {
+      margin: 4px 0;
+      font-size: clamp(12px, 3vw, 14px);
+    }
+
+    .label {
+      font-weight: bold;
+      color: #444;
+    }
+
+    a {
+      text-decoration: none;
+      color: #1e90ff;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .faculty-card {
+        width: 90%;
+        height: 340px;
+      }
+
+    
+      .faculty-notes {
+        margin: 15px 10px;
+        padding: 15px;
+      }
+
+      .department-section {
+        padding: 0 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-header">
+    <h1>Our Esteemed Faculty</h1>
+  </div>
+
+ 
+
+  <p class="faculty-notes">
+    At Acharya Narendra Dev College, our teachers are not just professionals. They are role models who guide and inspire students every single day...
+    <br><br> They always keep learning and improving themselves, so they can give the best knowledge to students.
+    <br><br> We are proud of our faculty and their valuable contribution to the success of our college. 👩‍🏫👨‍🏫📚✨
+    We believe that every educator has a unique story and contribution to make. Here, you can find detailed profiles of our faculty members, showcasing their achievements and areas of expertise.
+  </p>
+
+  <div id="faculty-list">
+    {% for dept, members in departments.items %}
+      <section class="department-section">
+        <h2 class="department-title">{{ dept }}</h2>
+        <div class="faculty-grid">
+          {% for member in members %}
+            <div class="faculty-card">
+              <div class="faculty-flip">
+                <div class="faculty-front">
+                  {% if member.photo %}
+                    <img src="{{ member.photo.url }}" alt="{{ member.name }} photo" class="faculty-photo">
+                  {% else %}
+                    <img src="{% static 'default_photo.jpg' %}" alt="No photo available" class="faculty-photo">
+                  {% endif %}
+                  <div class="faculty-info">
+                    <h3>👨‍🏫 {{ member.name }}</h3>
+                    <p><span class="label">🏅 Designation:</span> {{ member.designation }}</p>
+                    <p><span class="label">🏫 Department:</span> {{ member.get_department_display }}</p>
+                    <p><span class="label">🕒 Experience:</span> {{ member.experience }} Years</p>
+                  </div>
+                </div>
+                <div class="faculty-back">
+                  <p><span class="label">📧 Email:</span> <a href="mailto:{{ member.email }}">{{ member.email }}</a></p>
+                  {% if member.contact %}
+                    <p><span class="label">📞 Contact:</span> {{ member.contact }}</p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+  </div>
+
+{% include 'admissions/footer.html' %}  
+</body>
+</html>

@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="{% static 'img/andclogo.png' %}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Acharya Narendra Dev College</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+</head>
+<body>
+    <header class="site-header">
+        <div class="top-bar">
+            <div class="center-links">
+                <div class="social-media-links">
+                    <a href="https://twitter.com/ANDCollegeDU?t=jiE3L5Ru0JX3C2goSz-_SQ&s=08" target="_blank" class="social-icon twitter" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://instagram.com/yourprofile" target="_blank" class="social-icon instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/andcollege1992" target="_blank" class="social-icon facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.youtube.com/channel/UCVia2DudfU5CD9NdpvoDLCA" target="_blank" class="social-icon youtube" title="YouTube"><i class="fab fa-youtube"></i></a> <!-- Updated to YouTube -->
+                </div>
+            </div>
+        </div>
+  
+        
+        <div class="branding-area">
+          
+{% comment %}        
+      <div class="image-right">
+            <img src="{% static 'img/vikshit_bharat_logo.png' %}" alt="Vikshit Bharat" style="max-width: 100%; height: auto;">
+        </div>
+             {% endcomment %}
+            <div class="logo-box">
+                <img src="{% static 'img/andclogo.png' %}" alt="College Logo">
+             
+                <div class="college-info">
+                    <h1>ACHARYA NARENDRA DEV COLLEGE</h1>
+                    <p class="subheading">UNIVERSITY OF DELHI</p>
+                    <p class="address">Govindpuri, Kalkaji, New Delhi 110019</p>
+                    <p class="accreditation">Accredited 'A+' Grade by NAAC</p>
+                    <p class="dbt-status">DBT Star Status College</p>
+                </div>
+            </div>
+        </div>
+
+        <nav class="main-nav">
+            <ul>
+                <li><a href="/">🏠 Home</a></li>
+                <li><a href="{% url 'apply' %}">📄 Apply</a></li>
+                <li class="has-dropdown">
+                    <a href="#">📚 Courses</a>
+                    <ul class="dropdown">
+                        <li><a href="https://admission.uod.ac.in/?B.Tech.-Admissions">B.Tech</a></li>
+                        <li><a href="https://admission.uod.ac.in/2022/?UG-Admissions/Eligibility-and-Seat-Matrix/Bachelor-of-Arts">B.A</a></li>
+                        <li><a href="https://admission.uod.ac.in/2022/?UG-Admissions/Eligibility-and-Seat-Matrix/Bachelor-of-Management-and-Business-Administration">MBA</a></li>
+                        <li><a href="https://admission.uod.ac.in/2022/?UG-Admissions/Eligibility-and-Seat-Matrix/Bachelor-of-Sciences/B.Sc.-Hons.-Biomedical-Science">B.Sc. (Honours) Biomedical Sciences</a></li>
+                        <li><a href="https://admission.uod.ac.in/2022/?UG-Admissions/Eligibility-and-Seat-Matrix/Bachelor-of-Sciences/B.Sc-Hons.-Computer-Science">B.Sc. (Honours) Computer Science</a></li>
+                        <li><a href="https://admission.uod.ac.in/2022/?UG-Admissions/Eligibility-and-Seat-Matrix/Bachelor-of-Sciences/B.Sc-Hons.-Chemistry">B.Sc.(Honours) Chemistry</a></li>
+                        <li><a href="https://admission.uod.ac.in/2022/?UG-Admissions/Eligibility-and-Seat-Matrix/Bachelor-of-Sciences/B.Sc-Hons.-Mathematics">B.Sc. Mathematics</a></li>
+                        <li><a href="https://admission.uod.ac.in/2022/?UG-Admissions/Eligibility-and-Seat-Matrix/Bachelor-of-Commerce/B.Com.-Hons">B.Com. (Honours)</a></li>
+                        <li><a href="https://admission.uod.ac.in/2022/?PG-Admissions">PG Admissions</a></li>
+                        <li><a href="https://admission.uod.ac.in/2022/?Ph.D.-Admissions">Ph.D. Programs</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'student_login' %}">🔑 Student Login</a></li>
+                <li><a href="http://127.0.0.1:8000/faculty/">👨‍🏫 Faculty</a></li>
+                <li><a href="{% url 'contact' %}">📞 Contact Us</a></li>
+                <li><a href="{% url 'admissions' %}">📝 Admissions</a></li>
+                <li><a href="{% url 'about' %}">ℹ️ About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script src="{% static 'js/header.js' %}"></script>
+</body>
+</html>

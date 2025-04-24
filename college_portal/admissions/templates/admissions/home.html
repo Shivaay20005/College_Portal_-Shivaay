@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="{% static 'img/andclogo.png' %}">
+    <title>Welcome to College Portal</title>
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    
+</head>
+
+<body>
+
+    {% include 'admissions/header.html' %}
+
+    <!-- HERO Section -->
+    <div class="hero-section">
+        <div class="hero-overlay">
+            <h1>🎓 Welcome to Our College Admission Portal 2025–2026</h1>
+            <p>✨ Shape your future with excellence. Join a legacy of learning and leadership.</p>
+            <a href="/apply/" class="cta-btn">🚀 Apply Now</a>
+
+        </div>
+    </div>
+    
+    <!-- About Section -->
+    <section class="about">
+        <h2>About Our College</h2>
+        <p>
+            Acharya Narendra Dev College (ANDC), a prestigious institution under the University of Delhi, has established itself as a center of academic brilliance and holistic development since its inception in 1991. Named after the eminent freedom fighter, educationist, and reformer Acharya Narendra Dev, the college proudly reflects his values of integrity, truth, and knowledge.
+        </p>
+        <p>
+            Located in the calm and green surroundings of Govindpuri (Kalkaji), New Delhi, the college offers a perfect blend of modern infrastructure and a peaceful learning environment. From smart classrooms, fully-equipped science labs, a digital library, and Wi-Fi-enabled campus to eco-friendly practices and accessible facilities, the college ensures students experience both comfort and academic advancement.
+        </p>
+        <p>
+            Academically, ANDC is one of the top-ranking colleges in the fields of science and commerce. The college offers undergraduate programs in disciplines such as Physics, Chemistry, Biology, Computer Science, Mathematics, Biomedical Sciences, Electronics, Commerce, and more. It is also known for its innovative add-on courses, research opportunities, and collaborations with reputed institutions both nationally and internationally.
+        </p>
+        <p>
+            What sets ANDC apart is its emphasis on experiential learning and student-driven initiatives. The college promotes innovation and entrepreneurship through programs like the Innovation and Entrepreneurship Development Centre (IEDC) and the Research Mentorship Program. It also hosts numerous seminars, workshops, and fests that allow students to showcase their talents, build leadership skills, and gain real-world exposure.
+        </p>
+        <p>
+            In addition to academics, Acharya Narendra Dev College focuses heavily on personality development and social responsibility. With active societies in drama, music, dance, environment, NSS, NCC, and debating, students find ample opportunities to express themselves beyond books.
+        </p>
+        <p>
+            Our dedicated faculty members are not only subject experts but also mentors who guide students with empathy and dedication. The student-friendly administration ensures a transparent, timely, and responsive system for all academic and support services.
+        </p>
+        <p>
+            ANDC graduates are known to excel not just in academics but also in competitive exams, research, corporate sectors, and public services — a true reflection of the values and education they receive here.
+        </p>
+        <p>
+            Choosing Acharya Narendra Dev College is not just about earning a degree, it's about being part of a journey where knowledge meets purpose, and dreams meet direction. Join us and take the first step toward a brighter, impactful future!
+        </p>
+    </section>
+
+    <script>
+        function toggleDetails(featureBox) {
+            // Close other boxes
+            document.querySelectorAll('.feature').forEach(box => {
+                if (box !== featureBox) {
+                    box.classList.remove('open');
+                }
+            });
+
+            // Toggle current box
+            featureBox.classList.toggle('open');
+        }
+    </script>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="feature" onclick="toggleDetails(this)">
+            <h2>Explore Courses</h2>
+            <p>Wide range of programs in Science, Commerce, and Arts.</p>
+            <div class="feature-details">
+                <ul>
+                    <li>B.Sc. in Physics, Chemistry, Maths, Biology</li>
+                    <li>B.Com. (Hons & Prog)</li>
+                    <li>B.A. Program with various combinations</li>
+                    <li>Vocational and Add-on courses</li>
+                </ul>
+            </div>
+        </div>
+        <div class="feature" onclick="toggleDetails(this)">
+            <h2>Expert Faculty</h2>
+            <p>Learn from highly qualified and experienced faculty members.</p>
+            <div class="feature-details">
+                <p>Our faculty includes Ph.D. holders, experienced researchers, and dedicated mentors committed to helping students grow academically and professionally.</p>
+            </div>
+        </div>
+        <div class="feature" onclick="toggleDetails(this)">
+            <h2>Student Dashboard</h2>
+            <p>Track your application, login securely, and print your form anytime.</p>
+            <div class="feature-details">
+                <p>Access your academic records, application status, and personalized resources.</p>
+            </div>
+        </div>
+    </section>
+
+    {% include 'admissions/footer.html' %}
+    <script src="{% static 'js/home.js' %}"></script>
+</body>
+
+</html>

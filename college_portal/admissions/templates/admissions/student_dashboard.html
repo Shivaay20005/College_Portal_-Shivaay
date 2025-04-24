@@ -1,0 +1,504 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" href="{% static 'img/andclogo.png' %}">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  
+  <div class="print-exclude">
+    {% include 'admissions/header.html' %}
+</div>
+
+  <title>Application Details</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    body {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f4f8, #d9e4f5);
+      color: #2c3e50;
+    }
+
+    h1, h2, h3, h5, h6 {
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #2980b9;
+    }
+
+    h4 {
+      color: black;
+      font-weight: bold;
+      padding-top: 20px;
+      font-size: 36px;
+      text-align: center;
+    }
+
+    .college-header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 20px;
+      background:#035a4c;
+      color: white;
+    }
+
+    .college-header img {
+      height: 150px;
+      margin-right: 20px;
+    }
+
+    .college-header h1 {
+      font-size: 30px;
+      font-weight: 700;
+      color: white;
+    }
+
+    .application-form {
+      width: 90%;
+      max-width: 1300px;
+      margin: 50px auto;
+      background: #ffffff;
+      border: 1px solid #ddd;
+      padding: 10px 10px;
+      border-radius: 15px;
+      {% comment %} box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); {% endcomment %}
+      position: relative;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .application-form h2 {
+      text-align: center;
+      font-size: 42px;
+      color: #0a3d62;
+      margin-bottom: 40px;
+      font-weight: 700;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      letter-spacing: 1px;
+    }
+
+    .info-group {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin-bottom: 30px;
+    }
+
+    .details {
+      flex: 1;
+      min-width: 60%;
+    }
+
+    .photo, .signature {
+      margin-left: 20px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .photo img{
+      height: 160px;
+      border: 3px solid #2980b9;
+      border-radius: 10px;
+    }
+    .signature img {
+      max-height: 100px;
+      max-width: 200px;
+      width: auto;
+      border: 3px solid #2980b9;
+      height: auto;
+      object-fit: contain;
+    }
+    
+
+    .photo:hover img, .signature:hover img {
+      transform: scale(1.05);
+      box-shadow: 0 0 10px rgba(41, 128, 185, 0.5);
+    }
+
+    .signature {
+      position: absolute;
+      bottom: 100px;
+      right: 30px;
+      text-align: center;
+    }
+
+    .submitted-date {
+      position: absolute;
+      bottom: 30px;
+      left: 30px;
+      font-size: 16px;
+      font-style: italic;
+      color: #7f8c8d;
+    }
+
+
+    button {
+      margin-top: 100px;
+      padding: 15px 35px;
+      font-size: 20px;
+      background: #2ecc71;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    button:hover {
+      background: #27ae60;
+      transform: scale(1.08);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding-top: 60px;
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      width: 100%;
+      max-width: 700px;
+      max-height: 80%;
+      border: 2px solid #2980b9;
+      border-radius: 10px;
+      object-fit: contain;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 25px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: #f44336;
+      text-decoration: none;
+    }
+
+    @media (max-width: 1024px) {
+      .application-form {
+        padding: 20px;
+      }
+    
+      .info-group {
+        flex-direction: column;
+        gap: 20px;
+      }
+    
+      .photo, .signature {
+        margin: 0 auto;
+        text-align: center;
+      }
+    
+      .signature {
+        position: static;
+        margin-top: 30px;
+      }
+    
+      .submitted-date {
+        position: static;
+        margin-top: 20px;
+        text-align: center;
+      }
+    
+      .college-header {
+        flex-direction: column;
+        text-align: center;
+      }
+    
+      .college-header img {
+        margin: 0 auto 10px;
+      }
+    
+      .college-header h1 {
+        font-size: 26px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      h4 {
+        font-size: 28px;
+      }
+    
+      .application-form h2 {
+        font-size: 32px;
+      }
+    
+      button {
+        font-size: 18px;
+        padding: 12px 25px;
+      }
+    
+      .college-header img {
+        height: 100px;
+      }
+    
+      .photo img {
+        height: 130px;
+      }
+    
+      .signature img {
+        max-width: 180px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .application-form {
+        width: 95%;
+        font-size: 16px;
+      }
+    
+      .photo img, .signature img {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+      }
+    
+      .application-form h2 {
+        font-size: 24px;
+      }
+    
+      h4 {
+        font-size: 22px;
+      }
+    
+      button {
+        font-size: 16px;
+        padding: 10px 20px;
+      }
+    
+      .college-header h1 {
+        font-size: 20px;
+      }
+    }
+    
+
+
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    background: white !important;
+  }
+@page{
+  margin:10px;
+}
+  .print-exclude,
+  .modal,
+  button {
+    display: none !important;
+  }
+  .college-heading { /* ⬅️ this hides the 🎓 heading */
+    display: none !important;
+  }
+
+  .college-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 20px;
+    background: #035a4c !important;
+    color: white !important;
+  }
+
+  .college-header img {
+    height: 100px !important;
+    margin-right: 20px !important;
+  }
+
+  .college-header h1 {
+    font-size: 24px !important;
+    color: white !important;
+    margin: 0;
+  }
+
+  .application-form {
+    width: 100vw !important;
+    max-width: none !important;
+    padding: 0px 0px 40px 0px !important;
+    margin: 0px 0px 30px 0px  !important;
+    box-shadow: none !important;
+    background: white !important;
+    page-break-inside: avoid;
+    position: relative !important;
+  }
+
+  .photo img, .signature img {
+    height: 100px !important;
+    display: inline-block !important;
+  }
+
+  .signature {
+    position: absolute !important;
+    bottom: 100px !important;
+    right: 30px !important;
+  }
+
+  .submitted-date {
+    position: absolute !important;
+    bottom: 5px !important;
+    left: 0px !important;
+    font-size: 14px !important;
+    color: #000 !important;
+    font-size:18px !important;
+    display: block !important;
+  }
+  
+
+  h2 {
+    font-size: 30px !important;
+    text-align: center;
+  }
+
+}
+
+  </style>
+</head>
+<body>
+<!-- 🎓 Heading OUTSIDE the form -->
+<div class="college-heading">
+  <h4>🎓 College Admission Form</h4>
+</div>
+
+<!-- Actual Application Form START -->
+<div class="application-form">
+  <div class="college-header">
+    <img src="{% static 'img/andclogo.png' %}" alt="Andc Logo">
+    <h1>Acharya Narendra Dev College</h1>
+  </div>
+     
+    <div class="info-group">
+      <div class="details">
+        <p><strong>Full Name:</strong> {{ student.full_name }}</p>
+        <p><strong>Father's Name:</strong> {{ student.father_name }}</p>
+        <p><strong>Gender:</strong> {{ student.gender }}</p>
+        <p><strong>Date of Birth:</strong> {{ student.date_of_birth }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Phone:</strong> {{ student.mobile_number }}</p>
+        <p><strong>Address:</strong> {{ student.present_address }}</p>
+        <p><strong>Course:</strong> {{ student.get_course_applying_for_display }}</p>
+      </div>
+      <div class="photo">
+        <p><strong>Photo:</strong><br>
+          <a href="#" id="photoLink"><img src="{{ student.profile_picture.url }}"></a>
+        </p>
+      </div>
+    </div>
+
+    <p><strong>Blood Group:</strong> {{ student.blood_group }}</p>
+    <p><strong>Nationality:</strong> {{ student.nationality }}</p>
+    <p><strong>Category:</strong> {{ student.caste_category }}</p>
+    <p><strong>Parent Mobile Number:</strong> {{ student.parent_mobile_number }}</p>
+    <p><strong>Parent Email:</strong> {{ student.parent_email }}</p>
+    <p><strong>Last School Name:</strong> {{ student.last_school_name }}</p>
+    <p><strong>Year of Passing:</strong> {{ student.year_of_passing }}</p>
+    <p><strong>Percentage:</strong> {{ student.percentage }}%</p>
+    <p><strong>Medium:</strong> {{ student.medium_of_instruction }}</p>
+    <p><strong>Religion:</strong> {{ student.religion }}</p>
+    <p><strong>Permanent Address:</strong> {{ student.permanent_address }}</p>
+    <p><strong>Father's Occupation:</strong> {{ student.father_occupation }}</p>
+    <p><strong>Father's Contact:</strong> {{ student.father_contact }}</p>
+    <p><strong>Mother's Name:</strong> {{ student.mother_name }}</p>
+    <p><strong>Mother's Occupation:</strong> {{ student.mother_occupation }}</p>
+    <p><strong>Mother's Contact:</strong> {{ student.mother_contact }}</p>
+    <p><strong>Guardian's Name:</strong> {{ student.guardian_name }}</p>
+    <p><strong>Guardian Relation:</strong> {{ student.guardian_relation }}</p>
+    <p><strong>Last Class Passed:</strong> {{ student.last_class_passed }}</p>
+    <p><strong>Board Name:</strong> {{ student.board_name }}</p>
+    <p><strong>Marks Obtained:</strong> {{ student.marks_obtained }}</p>
+    <p><strong>Subjects Studied:</strong> {{ student.subjects_studied }}</p>
+
+    <p><strong>Branch:</strong> {{ student.branch }}</p>
+    <p><strong>Academic Year:</strong> {{ student.academic_year }}</p>
+    <p><strong>Admission Category:</strong> {{ student.admission_category }}</p>
+
+    <div class="submitted-date">
+      <strong>Submitted On:</strong> {{ student.submitted_at }}
+    </div>
+
+    <div class="signature">
+      <p><strong>Signature:</strong><br>
+        <a href="#" id="signatureLink"><img src="{{ student.signature.url }}"></a>
+      </p>
+    </div>
+         {% comment %} {% comment %} <!-- Aadhar Card Section -->
+         <div class="info-group">
+            <div class="details">
+              <p><strong>Aadhar Card:</strong><br><a href="{{ student.aadhar_card.url }}" target="_blank">📄 View Aadhar Card</a></p>
+            </div>
+          </div> {% endcomment %}
+    
+
+       <button onclick="window.print()">🖨️ Print Application</button>
+      </div>
+     
+    
+      <!-- Modal for Photo -->
+      <div id="photoModal" class="modal">
+        <span class="close" onclick="closeModal('photoModal')">&times;</span>
+        <img class="modal-content" id="photoModalContent">
+      </div>
+    
+      <!-- Modal for Signature -->
+      <div id="signatureModal" class="modal">
+        <span class="close" onclick="closeModal('signatureModal')">&times;</span>
+        <img class="modal-content" id="signatureModalContent">
+      </div>
+    
+      <script>
+        const photoModal = document.getElementById("photoModal");
+        const signatureModal = document.getElementById("signatureModal");
+    
+        const photoLink = document.getElementById("photoLink");
+        const signatureLink = document.getElementById("signatureLink");
+    
+        photoLink.onclick = function (event) {
+          event.preventDefault();
+          document.getElementById("photoModalContent").src = photoLink.querySelector("img").src;
+          photoModal.style.display = "block";
+        };
+    
+        signatureLink.onclick = function (event) {
+          event.preventDefault();
+          document.getElementById("signatureModalContent").src = signatureLink.querySelector("img").src;
+          signatureModal.style.display = "block";
+        };
+    
+        function closeModal(modalId) {
+          document.getElementById(modalId).style.display = "none";
+        }
+    
+        window.onclick = function (event) {
+          if (event.target === photoModal) {
+            photoModal.style.display = "none";
+          } else if (event.target === signatureModal) {
+            signatureModal.style.display = "none";
+          }
+        };
+      </script>
+      
+    </body>
+    </html>
+    
