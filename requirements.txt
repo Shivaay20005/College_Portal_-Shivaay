@@ -1,0 +1,10 @@
+Django>=4.2,<5.0
+Pillow
+gunicorn
+django-crispy-forms
+crispy-bootstrap5
+python-decouple
+whitenoise
+psycopg2-binary
+django-imagekit
+django-allauth
