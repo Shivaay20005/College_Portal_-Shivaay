@@ -1,0 +1,32 @@
+# render.yaml
+
+services:
+  - type: web
+    name: college-portal-web
+    env: python
+    region: oregon
+    plan: free
+
+    buildCommand: |
+      pip install -r requirements.txt
+
+    startCommand: |
+      gunicorn college_portal.college_portal.wsgi:application
+
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: college_portal.college_portal.settings
+      
+      - key: SECRET_KEY
+        value: django-insecure-0dn6wz!xw85#w*6j^z*a_&$!9$vpb*uq=e4i6!x!ef8mw#+ek2
+
+      - key: DEBUG
+        value: "True"
+
+      - key: ALLOWED_HOSTS
+        value: "college-portal-web.onrender.com"
+
+      - key: PYTHON_VERSION
+        value: 3.11
+
+    autoDeploy: true
